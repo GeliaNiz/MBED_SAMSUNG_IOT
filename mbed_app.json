@@ -1,0 +1,45 @@
+{
+    "config": {
+        "wifi-ssid": {
+            "help": "WiFi SSID",
+            "value": "\"RedmiWiFi\""
+        },
+        "wifi-password": {
+            "help": "WiFi Password",
+            "value": "\"12345678\""
+        },
+         "tx": {
+            "help": "TX pin for serial connection",
+            "value": "D8"
+        },
+        "rx": {
+            "help": "RX pin for serial connection",
+            "value": "D2"
+        },
+        "socket-bufsize": {
+            "help": "Max socket data heap usage",
+            "value": "1024"
+        }
+    },
+    "target_overrides": {
+        "*": {
+            "platform.stdio-convert-newlines": true,
+             "target.network-default-interface-type": "WIFI",
+            "esp8266.provide-default" : true,
+            "esp8266.tx": "D8",
+            "esp8266.rx": "D2",
+            "esp8266.socket-bufsize": "1024",
+            "platform.stdio-baud-rate": 115200,
+            "platform.default-serial-baud-rate": 115200
+        },
+        "DISCO_L475VG_IOT01A": {
+            "target.components_add": ["wifi_ism43362"],
+            "ism43362.provide-default": true
+        },
+        "DISCO_F413ZH": {
+            "target.components_add": ["wifi_ism43362"],
+            "ism43362.provide-default": true
+        }
+       
+    }
+}
