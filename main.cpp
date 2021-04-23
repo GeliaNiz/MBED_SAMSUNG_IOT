@@ -1,18 +1,3 @@
-/* WiFi Example
- * Copyright (c) 2016 ARM Limited
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 #include <cstdio>
 #include <cstring>
@@ -25,10 +10,9 @@
 #include "MQTTClientMbedOs.h"
 #include "string.h"
 
-
 WiFiInterface *wifi;
-//DHT dht(D2, D3);
-//AnalogIn humidity(PA_7);
+DHT dht(D2, D3);
+AnalogIn light(A0);
 
 char* host = "192.168.43.120";
 int port = 1883;
@@ -36,15 +20,10 @@ const char* global_topic = "global/";
 TCPSocket socket;
 MQTTClient client(&socket);
 int rc;
-int counter=0;
 
 void messageArrived(MQTT::MessageData& md){
     MQTT::Message &message = md.message;
-    printf("Message arrived: qos %d, retained %d, dup %d, packetid %d\r\n", message.qos, message.retained, message.dup, message.id);
     char* m = (char*)message.payload;
-    printf("Payload %.*s\r\n", message.payloadlen, m);
-    counter++;
-
 }
 void messageSend(const char* topic, char* message){
     char* buff =(char*)malloc(strlen(global_topic) + strlen(topic) + 1);
@@ -74,7 +53,6 @@ void initializeConnection(NetworkInterface* net){
     data.clientID.cstring = "1";
     data.username.cstring = "Nucleo_client";
     client.connect(data);
-    messageSend("plant1", "Hi!");
 }
 
 const char *sec2str(nsapi_security_t sec)
@@ -123,52 +101,40 @@ int scan_demo(WiFiInterface *wifi)
         return 0;
     }
 
-    // for (int i = 0; i < count; i++) {
-    //     printf("Network: %s secured: %s BSSID: %hhX:%hhX:%hhX:%hhx:%hhx:%hhx RSSI: %hhd Ch: %hhd\n", ap[i].get_ssid(),
-    //            sec2str(ap[i].get_security()), ap[i].get_bssid()[0], ap[i].get_bssid()[1], ap[i].get_bssid()[2],
-    //            ap[i].get_bssid()[3], ap[i].get_bssid()[4], ap[i].get_bssid()[5], ap[i].get_rssi(), ap[i].get_channel());
-    // }
     printf("%d networks available.\n", count);
 
     delete[] ap;
     return count;
 }
 
-// void TemperatureHandler()
-// {
-//     float temp = dht.ReadTemperature(CELCIUS);
-//     if(isnan(temp)){
-//         printf("Failed to read temperature from DHT!");
-//     }
-//     else{
-//         printf("%f",temp);
-//     }
-//     //TODO SENT TO MQTT CLIENT
+ void TemperatureHandler()
+ {
+    float temp = dht.ReadTemperature(CELCIUS);
+    if(isnan(temp)){
+        printf("Failed to read temperature from DHT!");
+    }
+    else{
+        printf("%f",temp);
+    }
+    //TODO SENT TO MQTT CLIENT
 
-// }
-// void HumidityHandler()
-// {
-//     float hum = humidity.read();
-//     if(isnan(hum)){
-//          printf("Failed to read humidity !");
-//     }
-//      else{
-//         printf("%f",hum);
-//     }
-//     //TODO SENT TO MQTT CLIENT
-// }
+}
+void LightHandler()
+{
+    float lgt = light.read();
+    if(isnan(lgt)){
+         printf("Failed to read light !");
+    }
+     else{
+        printf("%f\n",lgt);
+    }
+    char buffer[64];
+    snprintf(buffer, sizeof buffer, "%f", lgt);
+    messageSend("1/light", buffer);
+}
 
 int main()
 {
-
-    printf("WiFi example\n");
-    
-
-
-#ifdef MBED_MAJOR_VERSION
-    printf("Mbed OS version %d.%d.%d\n\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
-#endif
-
     wifi = WiFiInterface::get_default_instance();
     if (!wifi) {
         printf("ERROR: No WiFiInterface found.\n");
@@ -190,8 +156,6 @@ int main()
 
     printf("Success\n\n");
 
-    
-
     printf("MAC: %s\n", wifi->get_mac_address());
     SocketAddress a;
     wifi->get_ip_address(&a);
@@ -201,10 +165,12 @@ int main()
     wifi->get_gateway(&a);
     printf("Gateway: %s\n", a.get_ip_address());
     printf("RSSI: %d\n\n", wifi->get_rssi());
+
     initializeConnection(wifi);
     client.subscribe("global/plant2",MQTT::QOS0,messageArrived);
-    while(counter<5){
-        client.yield(100);
+    while(true){
+        LightHandler();
+        wait_us(500000);
     }
     //wifi->disconnect();
 

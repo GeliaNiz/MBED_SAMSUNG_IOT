@@ -1,11 +1,22 @@
 [
     {
+        "module": "DHT\\DHT.o",
+        "size": {
+            ".text": 12,
+            ".data": 0,
+            ".bss": 0,
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
+        }
+    },
+    {
         "module": "[lib]\\c_w.l",
         "size": {
-            ".text": 17105,
+            ".text": 17161,
             ".data": 16,
             ".bss": 348,
-            ".text-delta": 0,
+            ".text-delta": 5700,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -13,10 +24,10 @@
     {
         "module": "[lib]\\fz_wm.l",
         "size": {
-            ".text": 1312,
+            ".text": 1538,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 0,
+            ".text-delta": 1266,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -27,7 +38,7 @@
             ".text": 1,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 0,
+            ".text-delta": 1,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -49,7 +60,7 @@
             ".text": 746,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 0,
+            ".text-delta": 698,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -68,23 +79,12 @@
     {
         "module": "main.o",
         "size": {
-            ".text": 1661,
+            ".text": 1568,
             ".data": 12,
-            ".bss": 176,
-            ".text-delta": 198,
-            ".data-delta": 0,
+            ".bss": 296,
+            ".text-delta": 1165,
+            ".data-delta": 8,
             ".bss-delta": 4
-        }
-    },
-    {
-        "module": "mbed-mqtt\\paho_mqtt-sn_embedded_c",
-        "size": {
-            ".text": 884,
-            ".data": 0,
-            ".bss": 0,
-            ".text-delta": 884,
-            ".data-delta": 0,
-            ".bss-delta": 0
         }
     },
     {
@@ -93,7 +93,7 @@
             ".text": 1902,
             ".data": 0,
             ".bss": 4,
-            ".text-delta": 330,
+            ".text-delta": 830,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -101,10 +101,10 @@
     {
         "module": "mbed-mqtt\\src",
         "size": {
-            ".text": 4098,
+            ".text": 2950,
             ".data": 0,
             ".bss": 44,
-            ".text-delta": 1590,
+            ".text-delta": 700,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -115,18 +115,18 @@
             ".text": 16747,
             ".data": 0,
             ".bss": 1580,
-            ".text-delta": 0,
+            ".text-delta": 16488,
             ".data-delta": 0,
-            ".bss-delta": 0
+            ".bss-delta": 1580
         }
     },
     {
         "module": "mbed-os\\drivers",
         "size": {
-            ".text": 4379,
+            ".text": 4545,
             ".data": 0,
-            ".bss": 0,
-            ".text-delta": 0,
+            ".bss": 40,
+            ".text-delta": 3758,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -137,9 +137,9 @@
             ".text": 2188,
             ".data": 0,
             ".bss": 3108,
-            ".text-delta": 0,
+            ".text-delta": 2188,
             ".data-delta": 0,
-            ".bss-delta": 0
+            ".bss-delta": 3108
         }
     },
     {
@@ -148,9 +148,9 @@
             ".text": 13527,
             ".data": 99,
             ".bss": 141,
-            ".text-delta": 0,
-            ".data-delta": 0,
-            ".bss-delta": 0
+            ".text-delta": 10458,
+            ".data-delta": 99,
+            ".bss-delta": 141
         }
     },
     {
@@ -159,7 +159,7 @@
             ".text": 1968,
             ".data": 4,
             ".bss": 66,
-            ".text-delta": 0,
+            ".text-delta": 12,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -170,9 +170,9 @@
             ".text": 7815,
             ".data": 64,
             ".bss": 344,
-            ".text-delta": 0,
+            ".text-delta": 1800,
             ".data-delta": 0,
-            ".bss-delta": 0
+            ".bss-delta": 4
         }
     },
     {
@@ -181,28 +181,28 @@
             ".text": 14289,
             ".data": 168,
             ".bss": 6762,
-            ".text-delta": 0,
+            ".text-delta": 3253,
             ".data-delta": 0,
-            ".bss-delta": 0
+            ".bss-delta": 8
         }
     },
     {
         "module": "mbed-os\\targets",
         "size": {
-            ".text": 7873,
+            ".text": 9787,
             ".data": 4,
             ".bss": 352,
-            ".text-delta": 0,
+            ".text-delta": 1312,
             ".data-delta": 0,
-            ".bss-delta": 0
+            ".bss-delta": 16
         }
     },
     {
         "summary": {
-            "static_ram": 14316,
-            "static_ram_delta": 4,
-            "total_flash": 96938,
-            "total_flash_delta": 3002
+            "static_ram": 14476,
+            "static_ram_delta": 4968,
+            "total_flash": 97187,
+            "total_flash_delta": 49736
         }
     }
 ]
