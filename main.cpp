@@ -1,5 +1,6 @@
 
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #define MQTTCLIENT_QOS2 1
 #include "mbed.h"
@@ -11,20 +12,34 @@
 #include "string.h"
 
 WiFiInterface *wifi;
-DHT dht(D2, D3);
-AnalogIn light(A0);
 
-char* host = "192.168.43.120";
-int port = 1883;
+AnalogIn light(A4);
+AnalogIn humidity(A5);
+AnalogIn temperature(A1);
+
+char* host = "127.0.0.1";
+int port = 8883;
 const char* global_topic = "global/";
 TCPSocket socket;
 MQTTClient client(&socket);
 int rc;
+int pot_id;
+
 
 void messageArrived(MQTT::MessageData& md){
     MQTT::Message &message = md.message;
     char* m = (char*)message.payload;
+    char* topic = md.topicName.cstring;
+    if(!strcmp(topic,"global/1/pump")){
+        if(*m=='0'){
+            //выключаем выход
+        } else if(*m=='1'){
+            //включаем выход
+        }
+    }
+
 }
+
 void messageSend(const char* topic, char* message){
     char* buff =(char*)malloc(strlen(global_topic) + strlen(topic) + 1);
     strcat(buff,global_topic);
@@ -51,8 +66,11 @@ void initializeConnection(NetworkInterface* net){
     MQTTPacket_connectData data = MQTTPacket_connectData_initializer;
     data.MQTTVersion = 3;
     data.clientID.cstring = "1";
-    data.username.cstring = "Nucleo_client";
+    char nameBuf[30];
+    snprintf(nameBuf, sizeof(nameBuf), "POR_CLIENT_%d",pot_id);
+    data.username.cstring = "POT_CLIENT";
     client.connect(data);
+    printf("Connected to MQTT\n");
 }
 
 const char *sec2str(nsapi_security_t sec)
@@ -109,13 +127,16 @@ int scan_demo(WiFiInterface *wifi)
 
  void TemperatureHandler()
  {
-    float temp = dht.ReadTemperature(CELCIUS);
+    float temp = temperature.read();
     if(isnan(temp)){
-        printf("Failed to read temperature from DHT!");
+        printf("Failed to read temperature from DHT!\n");
     }
     else{
-        printf("%f",temp);
+        printf("Temperature: %f\n",temp);
     }
+    char buffer[64];
+    snprintf(buffer, sizeof buffer, "%f", temp);
+    messageSend("1/temperature", buffer);
     //TODO SENT TO MQTT CLIENT
 
 }
@@ -123,14 +144,29 @@ void LightHandler()
 {
     float lgt = light.read();
     if(isnan(lgt)){
-         printf("Failed to read light !");
+        printf("Failed to read light !\n");
     }
      else{
-        printf("%f\n",lgt);
+        printf("Light: %f\n",lgt);
     }
     char buffer[64];
     snprintf(buffer, sizeof buffer, "%f", lgt);
     messageSend("1/light", buffer);
+}
+
+void HumidityHandler(){
+    float hdt = humidity.read();
+    if(isnan(hdt)){
+        printf("Failed to read humidity!\n");
+    } else {
+        printf("Humidity: %f\n",hdt);
+    }
+}
+
+void Read(){
+    LightHandler();
+    HumidityHandler();
+    TemperatureHandler();
 }
 
 int main()
@@ -167,10 +203,9 @@ int main()
     printf("RSSI: %d\n\n", wifi->get_rssi());
 
     initializeConnection(wifi);
-    client.subscribe("global/plant2",MQTT::QOS0,messageArrived);
-    while(true){
-        LightHandler();
-        wait_us(500000);
+    while(1){
+        Read();
+        client.yield(500);
     }
     //wifi->disconnect();
 
