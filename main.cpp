@@ -1,5 +1,6 @@
 
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #define MQTTCLIENT_QOS2 1
 #include "mbed.h"
@@ -10,18 +11,26 @@
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include "DS18B20.h"
 
 WiFiInterface *wifi;
 AnalogIn light(A1);
 AnalogIn humidity(A0);
 DigitalOut pump(D3);
+DS18B20 temp(A2);
+
+Thread humidityThread;
+Thread lightThread;
 
 char* host = "192.168.0.124";
 int port = 1883;
 const char* global_topic = "%/";
+
 TCPSocket socket;
 MQTTClient client(&socket);
 int rc;
+int pot_id;
+
 
 struct desired{
     double humidity;
@@ -30,7 +39,9 @@ struct desired{
 
 struct desired desire;
 
-void messageSend(const char* topic, char* message){
+
+void messageSend(const char* topic, char* message)
+{
     char* buff =(char*)malloc(strlen(global_topic) + strlen(topic) + 1);
     strcat(buff,global_topic);
     strcat(buff,topic);
@@ -43,7 +54,8 @@ void messageSend(const char* topic, char* message){
     rc = client.publish(buff,messg);
 }
 
-void initializeConnection(NetworkInterface* net){
+void initializeMQTTConnection(NetworkInterface* net)
+{
     
     SocketAddress a;
     net->gethostbyname(host, &a);
@@ -55,7 +67,12 @@ void initializeConnection(NetworkInterface* net){
     data.MQTTVersion = 3;
     data.clientID.cstring = "236";
     data.username.cstring = "Nucleo_client_2";
+    data.clientID.cstring = "1";
+    char nameBuf[30];
+    snprintf(nameBuf, sizeof(nameBuf), "POR_CLIENT_%d",pot_id);
+    data.username.cstring = "POT_CLIENT";
     client.connect(data);
+    printf("Connected to MQTT\n");
 }
 
 const char *sec2str(nsapi_security_t sec)
@@ -75,6 +92,77 @@ const char *sec2str(nsapi_security_t sec)
         default:
             return "Unknown";
     }
+}
+
+void TemperatureHandler()
+{
+    float tmp = temp.readTemperature(0);
+    if(isnan(tmp)){
+        printf("Failed to read temperature !\n");
+    }
+     else{
+        printf("Temperature: %f\n",tmp);
+    }
+}
+
+void LightHandler()
+{
+    while(true){
+        float lgt = light.read();
+        if(isnan(lgt)){
+            printf("Failed to read light !\n");
+        }
+        else{
+            printf("Light: %f\n",lgt);
+        }
+        char buffer[64];
+        snprintf(buffer, sizeof(buffer), "%f", lgt);
+        messageSend("1/light", buffer);
+    }
+}
+
+void HumidityHandler()
+{
+    while(true){
+        float hmd = humidity.read();
+        if(hmd<desire.humidity-0.1){
+            pump = 1;
+            while(hmd<desire.humidity){
+                hmd = humidity.read();
+                wait_us(100000);
+            }
+            pump = 0;
+        }
+        if(isnan(hmd)){
+            printf("Failed to read humidity!");
+        }
+         else{
+            printf("Humidty: %f\n",hmd);
+        }
+        char buffer[64];
+        snprintf(buffer, sizeof(buffer), "%f", hmd);
+        messageSend("1/humidty", buffer);
+        wait_us(500000);
+    }
+}
+
+void messageArrived(MQTT::MessageData& md){
+    MQTT::Message &message = md.message;
+    char* topic = md.topicName.cstring;
+    if (strcmp(topic,"%/update")==0){
+        LightHandler();
+        HumidityHandler();
+    }
+    if(strcmp(topic,"%/1/humidity")==0){
+        desire.humidity = atoi((char*)message.payload);
+    }
+    if(strcmp(topic,"%/1/light")==0){
+        desire.light = atoi((char*)message.payload);
+    }
+    if(strcmp(topic,"%/1/control_pump")==0){
+        pump=atoi((char*)message.payload);
+    }
+
 }
 
 int find_network(WiFiInterface *wifi)
@@ -107,77 +195,13 @@ int find_network(WiFiInterface *wifi)
     return count;
 }
 
-//  void TemperatureHandler()
-//  {
-//     // temp.convertTemperature(true, DS1820::all_devices);  
-
-//     if(isnan(tmp)){
-//         printf("Failed to read temperature from DHT!");
-//     }
-//     else{
-//         printf("Temperature: %f\n",tmp*180-55);
-//     }
-//     //TODO SENT TO MQTT CLIENT
-
-// }
-void LightHandler()
+int connect_wifi(WiFiInterface *wifi)
 {
-    float lgt = light.read();
-    if(isnan(lgt)){
-        printf("Failed to read light!");
-    }
-     else{
-        printf("Light: %f\n",lgt);
-    }
-    char buffer[64];
-    snprintf(buffer, sizeof(buffer), "%f", lgt);
-    messageSend("1/light", buffer);
-}
-
-void HumidityHandler()
-{
-    float hmd = humidity.read();
-    if(hmd<desire.humidity-0.1){
-        pump = 1;
-        while(hmd<desire.humidity){
-            hmd = humidity.read();
-        }
-        pump = 0;
-    }
-    if(isnan(hmd)){
-        printf("Failed to read humidity!");
-    }
-     else{
-        printf("Light: %f\n",hmd);
-    }
-    char buffer[64];
-    snprintf(buffer, sizeof(buffer), "%f", hmd);
-    messageSend("1/humidty", buffer);
-}
-
-void messageArrived(MQTT::MessageData& md){
-    MQTT::Message &message = md.message;
-    char* topic = md.topicName.cstring;
-    if (strcmp(topic,"%/update")==0){
-        LightHandler();
-        HumidityHandler();
-    }
-    if(strcmp(topic,"%/1/humidity")==0){
-        desire.humidity = atoi((char*)message.payload);
-    }
-    if(strcmp(topic,"%/1/light")==0){
-        desire.light = atoi((char*)message.payload);
-    }
-}
-
-int main()
-{
-    wifi = WiFiInterface::get_default_instance();
     if (!wifi) {
-        printf("ERROR: No WiFiInterface found.\n");
-        return -1;
+            printf("ERROR: No WiFiInterface found.\n");
+            return -1;
     }
-    desire.humidity = 0.4;
+    desire.humidity = 0.25;
     int count = find_network(wifi);
     if (count == 0) {
         printf("No WIFI APs found - can't continue further.\n");
@@ -202,12 +226,19 @@ int main()
     wifi->get_gateway(&a);
     printf("Gateway: %s\n", a.get_ip_address());
     printf("RSSI: %d\n\n", wifi->get_rssi());
+    return 1;
+}
 
-    initializeConnection(wifi);
-    client.subscribe("%/#",MQTT::QOS0,messageArrived);
+int main()
+{
+    wifi = WiFiInterface::get_default_instance();
+    connect_wifi(wifi);
+    initializeMQTTConnection(wifi);
+
+    humidityThread.start(HumidityHandler);
+    lightThread.start(LightHandler);
     while(true){
-        LightHandler();
-        HumidityHandler();
+        TemperatureHandler();
         wait_us(500000);
     }
     wifi->disconnect();

@@ -1,22 +1,11 @@
 [
     {
-        "module": "DHT\\DHT.o",
-        "size": {
-            ".text": 12,
-            ".data": 0,
-            ".bss": 0,
-            ".text-delta": 0,
-            ".data-delta": 0,
-            ".bss-delta": 0
-        }
-    },
-    {
         "module": "[lib]\\c_w.l",
         "size": {
             ".text": 17161,
             ".data": 16,
             ".bss": 348,
-            ".text-delta": 5700,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -27,7 +16,7 @@
             ".text": 1538,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 1266,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -38,7 +27,7 @@
             ".text": 1,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 1,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -60,7 +49,7 @@
             ".text": 746,
             ".data": 0,
             ".bss": 0,
-            ".text-delta": 698,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -79,21 +68,32 @@
     {
         "module": "main.o",
         "size": {
-            ".text": 1568,
+            ".text": 1772,
             ".data": 12,
-            ".bss": 296,
-            ".text-delta": 1165,
-            ".data-delta": 8,
-            ".bss-delta": 4
+            ".bss": 416,
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
+        }
+    },
+    {
+        "module": "mbed-mqtt\\paho_mqtt-sn_embedded_c",
+        "size": {
+            ".text": 884,
+            ".data": 0,
+            ".bss": 0,
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
         }
     },
     {
         "module": "mbed-mqtt\\paho_mqtt_embedded_c",
         "size": {
-            ".text": 1902,
+            ".text": 1572,
             ".data": 0,
             ".bss": 4,
-            ".text-delta": 830,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -101,10 +101,10 @@
     {
         "module": "mbed-mqtt\\src",
         "size": {
-            ".text": 2950,
+            ".text": 3656,
             ".data": 0,
             ".bss": 44,
-            ".text-delta": 700,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -115,9 +115,9 @@
             ".text": 16747,
             ".data": 0,
             ".bss": 1580,
-            ".text-delta": 16488,
+            ".text-delta": 0,
             ".data-delta": 0,
-            ".bss-delta": 1580
+            ".bss-delta": 0
         }
     },
     {
@@ -126,7 +126,7 @@
             ".text": 4545,
             ".data": 0,
             ".bss": 40,
-            ".text-delta": 3758,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -137,9 +137,9 @@
             ".text": 2188,
             ".data": 0,
             ".bss": 3108,
-            ".text-delta": 2188,
+            ".text-delta": 0,
             ".data-delta": 0,
-            ".bss-delta": 3108
+            ".bss-delta": 0
         }
     },
     {
@@ -148,9 +148,9 @@
             ".text": 13527,
             ".data": 99,
             ".bss": 141,
-            ".text-delta": 10458,
-            ".data-delta": 99,
-            ".bss-delta": 141
+            ".text-delta": 0,
+            ".data-delta": 0,
+            ".bss-delta": 0
         }
     },
     {
@@ -159,7 +159,7 @@
             ".text": 1968,
             ".data": 4,
             ".bss": 66,
-            ".text-delta": 12,
+            ".text-delta": 0,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -170,9 +170,9 @@
             ".text": 7815,
             ".data": 64,
             ".bss": 344,
-            ".text-delta": 1800,
+            ".text-delta": 0,
             ".data-delta": 0,
-            ".bss-delta": 4
+            ".bss-delta": 0
         }
     },
     {
@@ -181,9 +181,9 @@
             ".text": 14289,
             ".data": 168,
             ".bss": 6762,
-            ".text-delta": 3253,
+            ".text-delta": 0,
             ".data-delta": 0,
-            ".bss-delta": 8
+            ".bss-delta": 0
         }
     },
     {
@@ -192,17 +192,17 @@
             ".text": 9787,
             ".data": 4,
             ".bss": 352,
-            ".text-delta": 1312,
+            ".text-delta": 0,
             ".data-delta": 0,
-            ".bss-delta": 16
+            ".bss-delta": 0
         }
     },
     {
         "summary": {
-            "static_ram": 14476,
-            "static_ram_delta": 4968,
-            "total_flash": 97187,
-            "total_flash_delta": 49736
+            "static_ram": 14596,
+            "static_ram_delta": 0,
+            "total_flash": 98639,
+            "total_flash_delta": 0
         }
     }
 ]

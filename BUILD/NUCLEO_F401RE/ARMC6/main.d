@@ -325,4 +325,7 @@ BUILD\NUCLEO_F401RE\ARMC6\main.o: main.cpp \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNPacket\src\MQTTSNSearch.h \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTSNClient.h \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\FP.h \
-  mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTLogging.h
+  mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTLogging.h \
+  Autus\DS18B20Multiple\DS18B20.h \
+  Autus\DS18B20Multiple\OneWireThermometer.h \
+  Autus\DS18B20Multiple\OneWireCRC.h Autus\DS18B20Multiple\OneWireDefs.h
