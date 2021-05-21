@@ -22,7 +22,7 @@ DS18B20 temp(A2);
 Thread humidityThread;
 Thread lightThread;
 
-char* host = "192.168.0.124";
+char* host = "192.168.43.186";
 int port = 1883;
 const char* global_topic = "%/";
 
@@ -42,7 +42,7 @@ struct desired desire;
 
 void messageSend(const char* topic, char* message)
 {
-    char* buff =(char*)malloc(strlen(global_topic) + strlen(topic) + 1);
+    char* buff =(char*)malloc(strlen(global_topic) + strlen(topic));
     strcat(buff,global_topic);
     strcat(buff,topic);
     MQTT::Message messg;
@@ -118,6 +118,7 @@ void LightHandler()
         char buffer[64];
         snprintf(buffer, sizeof(buffer), "%f", lgt);
         messageSend("1/light", buffer);
+        wait_us(2000000);
     }
 }
 
@@ -137,12 +138,12 @@ void HumidityHandler()
             printf("Failed to read humidity!");
         }
          else{
-            printf("Humidty: %f\n",hmd);
+            printf("Humidity: %f\n",hmd);
         }
         char buffer[64];
         snprintf(buffer, sizeof(buffer), "%f", hmd);
-        messageSend("1/humidty", buffer);
-        wait_us(500000);
+        messageSend("1/humidity", buffer);
+        wait_us(2000000);
     }
 }
 
@@ -161,6 +162,7 @@ void messageArrived(MQTT::MessageData& md){
     }
     if(strcmp(topic,"%/1/control_pump")==0){
         pump=atoi((char*)message.payload);
+        printf("Pump should be %d",atoi((char*)message.payload));
     }
 
 }
@@ -197,6 +199,13 @@ int find_network(WiFiInterface *wifi)
 
 int connect_wifi(WiFiInterface *wifi)
 {
+    
+    return 1;
+}
+
+int main()
+{
+    wifi = WiFiInterface::get_default_instance();
     if (!wifi) {
             printf("ERROR: No WiFiInterface found.\n");
             return -1;
@@ -226,13 +235,6 @@ int connect_wifi(WiFiInterface *wifi)
     wifi->get_gateway(&a);
     printf("Gateway: %s\n", a.get_ip_address());
     printf("RSSI: %d\n\n", wifi->get_rssi());
-    return 1;
-}
-
-int main()
-{
-    wifi = WiFiInterface::get_default_instance();
-    connect_wifi(wifi);
     initializeMQTTConnection(wifi);
 
     humidityThread.start(HumidityHandler);

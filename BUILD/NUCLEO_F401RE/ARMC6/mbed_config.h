@@ -29,8 +29,8 @@
 #define MBED_CONF_APP_RX                                                      D2                                                                                               // set by application
 #define MBED_CONF_APP_SOCKET_BUFSIZE                                          1024                                                                                             // set by application
 #define MBED_CONF_APP_TX                                                      D8                                                                                               // set by application
-#define MBED_CONF_APP_WIFI_PASSWORD                                           "3vh7UJnj"                                                                                       // set by application
-#define MBED_CONF_APP_WIFI_SSID                                               "RT-WiFi-C2C1"                                                                                   // set by application
+#define MBED_CONF_APP_WIFI_PASSWORD                                           "12345678"                                                                                       // set by application
+#define MBED_CONF_APP_WIFI_SSID                                               "RedmiWiFi"                                                                                      // set by application
 #define MBED_CONF_ATMEL_RF_ASSUME_SPACED_SPI                                  1                                                                                                // set by library:atmel-rf[STM]
 #define MBED_CONF_ATMEL_RF_FULL_SPI_SPEED                                     7500000                                                                                          // set by library:atmel-rf
 #define MBED_CONF_ATMEL_RF_FULL_SPI_SPEED_BYTE_SPACING                        250                                                                                              // set by library:atmel-rf
