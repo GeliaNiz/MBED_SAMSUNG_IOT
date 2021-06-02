@@ -242,10 +242,10 @@ int main()
 
     initializeMQTTConnection(wifi);
     client.subscribe("%/#", MQTT::QOS0, messageArrived);
-    //printf("Subscribe status: %d",rc);
+    
 
     humidityThread.start(HumidityHandler);
-    //lightThread.start(LightHandler);
+    lightThread.start(LightHandler);
     tempThread.start(TemperatureHandler);
     while(true){
         client.yield(100);
