@@ -23,6 +23,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\frameworks\mbed-client-randlib\mbed-client-randlib\randLIB.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ns_sha256.h \
   mbed-os\features\mbedtls\inc\mbedtls\sha256.h \
   mbed-os\features\mbedtls\inc\mbedtls\config.h \

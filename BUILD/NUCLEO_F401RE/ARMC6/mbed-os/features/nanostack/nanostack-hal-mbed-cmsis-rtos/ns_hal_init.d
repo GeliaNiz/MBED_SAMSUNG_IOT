@@ -13,4 +13,5 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\nanostack-hal-mbed-cmsis-rt
   mbed-os\features\nanostack\nanostack-hal-mbed-cmsis-rtos\arm_hal_interrupt_private.h \
   mbed-os\features\nanostack\nanostack-hal-mbed-cmsis-rtos\ns_hal_init.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\nanostack-hal-mbed-cmsis-rtos\ns_file_system_api.h

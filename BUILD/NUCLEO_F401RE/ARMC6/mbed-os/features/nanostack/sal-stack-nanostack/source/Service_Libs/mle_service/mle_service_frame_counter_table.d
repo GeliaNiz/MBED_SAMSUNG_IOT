@@ -24,6 +24,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ccmLIB.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_aes.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Core\include\ns_address_internal.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_list.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Core\include\ns_buffer.h \

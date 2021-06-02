@@ -3,9 +3,7 @@ BUILD
 troykalight
 mbed-os
 mbed-mqtt
-DHT
 arduino-temperature-control-library
-DS1820
-DallasTemperature
 Autus
-DebugTrace
+esp8266-driver
+DS1820

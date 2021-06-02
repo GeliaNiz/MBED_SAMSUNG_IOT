@@ -171,4 +171,5 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\netsocket\EMACInterface.o: \
   mbed-os\features\netsocket\NetworkStack.h \
   mbed-os\features\netsocket\L3IP.h mbed-os\features\netsocket\PPP.h \
   mbed-os\platform\FileHandle.h mbed-os\platform\mbed_poll.h \
-  mbed-os\platform\platform.h mbed-os\platform\mbed_retarget.h
+  mbed-os\platform\platform.h mbed-os\platform\mbed_retarget.h \
+  mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h

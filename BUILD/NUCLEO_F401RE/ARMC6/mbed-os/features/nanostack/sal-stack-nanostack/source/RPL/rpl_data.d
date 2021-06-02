@@ -20,6 +20,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\common_functions.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_types.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_trace.h \
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Core\include\ns_buffer.h \
@@ -55,4 +56,14 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_downward.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_structures.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_policy.h \
-  mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_data.h
+  mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_data.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_common.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_api.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_config.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_ws_extension.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_api.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_fhss.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_config.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_common_defines.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_neighbor_class.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_ws_extension.h

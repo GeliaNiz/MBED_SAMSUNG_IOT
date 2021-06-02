@@ -20,6 +20,8 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_trace.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_types.h \
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_interface.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_phy.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\eventOS_event.h \
@@ -30,6 +32,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\sw_mac.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ccmLIB.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_aes.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\Core\include\ns_monitor.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\NWK_INTERFACE\Include\protocol.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\NWK_INTERFACE\Include\protocol_abstract.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Core\include\ns_address_internal.h \
@@ -54,6 +57,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\mlme.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\MAC\mac_data_poll.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\MAC\mpx_api.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\mac_mcps.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\MAC\mac_ie_lib.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\MPL\mpl.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_protocol.h \
@@ -66,6 +70,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\icmpv6_prefix.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\icmpv6_radv.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\ipv6_constants.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\ip.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\fhss\channel_list.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_common_defines.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_config.h \
@@ -100,4 +105,5 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_eapol_pdu.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_eapol_auth_relay.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_eapol_relay.h \
-  mbed-os\features\nanostack\sal-stack-nanostack\source\libNET\src\net_dns_internal.h
+  mbed-os\features\nanostack\sal-stack-nanostack\source\libNET\src\net_dns_internal.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\random_early_detection\random_early_detection_api.h

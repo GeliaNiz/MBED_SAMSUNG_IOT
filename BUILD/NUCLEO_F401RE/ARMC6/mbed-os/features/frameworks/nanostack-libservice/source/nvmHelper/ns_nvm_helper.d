@@ -4,6 +4,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\frameworks\nanostack-libservice\sourc
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_types.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_types.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_list.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\platform\arm_hal_nvm.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_nvm_helper.h

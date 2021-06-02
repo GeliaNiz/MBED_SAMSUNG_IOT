@@ -11,6 +11,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\mbed-mesh-api\source\nd_tas
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_phy.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ip6string.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\mbed-mesh-api\source\include\nd_tasklet.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\eventOS_event.h \
   mbed-os\features\nanostack\mbed-mesh-api\mbed-mesh-api\mesh_interface_types.h \

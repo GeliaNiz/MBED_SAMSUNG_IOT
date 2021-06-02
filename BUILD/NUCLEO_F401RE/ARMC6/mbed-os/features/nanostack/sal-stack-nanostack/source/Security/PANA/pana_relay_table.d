@@ -19,4 +19,5 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\configs\base\cfg_ws_router.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\PANA\pana_relay_table.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
-  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_types.h
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_types.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h

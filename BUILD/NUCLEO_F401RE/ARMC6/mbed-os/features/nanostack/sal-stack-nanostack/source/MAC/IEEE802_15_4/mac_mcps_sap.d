@@ -25,6 +25,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_trace.h \
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ccmLIB.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_aes.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\mlme.h \
@@ -38,6 +39,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\platform\arm_hal_interrupt.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\common_functions.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Core\include\ns_monitor.h \
+  mbed-os\features\frameworks\mbed-client-randlib\mbed-client-randlib\randLIB.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\MAC\IEEE802_15_4\sw_mac_internal.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\MAC\IEEE802_15_4\mac_defines.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\MAC\IEEE802_15_4\mac_data_buffer.h \

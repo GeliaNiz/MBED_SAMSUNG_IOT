@@ -23,6 +23,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_trace.h \
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_config.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_ws_extension.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_api.h \
@@ -78,5 +79,6 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_pae_nvm_store.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_pae_nvm_data.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\MAC\mpx_api.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\mac_mcps.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_eapol_pdu.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\kmp\kmp_eapol_pdu_if.h

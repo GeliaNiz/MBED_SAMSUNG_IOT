@@ -39,6 +39,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\TLS\tls_ccm_crypt.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\Common\sec_lib.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_nvm_api.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\PANA\pana.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\PANA\pana_header.h \

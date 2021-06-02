@@ -22,6 +22,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_trace.h \
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\mac_common_defines.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\mac_api.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\mlme.h \
@@ -68,4 +69,5 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_cfg_settings.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\PANA\pana_eap_header.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Security\eapol\eapol_helper.h \
-  mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\etx\etx.h
+  mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\etx\etx.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\random_early_detection\random_early_detection_api.h

@@ -193,6 +193,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\mbed-mesh-api\source\Nanost
   mbed-os\features\nanostack\nanostack-interface\NanostackPPPPhy.h \
   mbed-os\features\netsocket\PPP.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_phy.h \
   mbed-os\platform\mbed_interface.h \
   mbed-os\features\nanostack\mbed-mesh-api\source\include\mesh_system.h \

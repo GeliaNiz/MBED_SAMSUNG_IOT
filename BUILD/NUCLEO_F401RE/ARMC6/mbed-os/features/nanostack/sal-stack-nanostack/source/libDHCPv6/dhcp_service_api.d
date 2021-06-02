@@ -26,6 +26,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\eventOS_event_timer.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\eventOS_event.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\frameworks\mbed-client-randlib\mbed-client-randlib\randLIB.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\socket_api.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ns_address.h \
@@ -50,4 +51,5 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\pan_blacklist\pan_blacklist_api.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\mac_neighbor_table\mac_neighbor_table.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_polling_api.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\ip.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\dhcp_service_api.h

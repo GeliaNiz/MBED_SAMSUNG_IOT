@@ -1,307 +1,248 @@
 BUILD\NUCLEO_F401RE\ARMC6\main.o: main.cpp \
   BUILD\NUCLEO_F401RE\ARMC6\mbed_config.h mbed-os\mbed.h \
-  mbed-os\platform\include\platform\mbed_version.h \
-  mbed-os\rtos\include\rtos\rtos.h \
-  mbed-os\rtos\include\rtos\internal\mbed_rtos_storage.h \
-  mbed-os\cmsis\device\rtos\include\mbed_rtx_storage.h \
-  mbed-os\cmsis\CMSIS_5\CMSIS\RTOS2\RTX\Include\rtx_os.h \
-  mbed-os\cmsis\CMSIS_5\CMSIS\RTOS2\Include\cmsis_os2.h \
-  mbed-os\cmsis\device\rtos\include\mbed_rtx_conf.h \
-  mbed-os\targets\TARGET_STM\mbed_rtx.h \
-  mbed-os\rtos\include\rtos\Kernel.h \
-  mbed-os\rtos\include\rtos\mbed_rtos_types.h \
-  mbed-os\platform\include\platform\mbed_toolchain.h \
-  mbed-os\platform\include\platform\mbed_preprocessor.h \
-  mbed-os\rtos\include\rtos\Thread.h \
-  mbed-os\rtos\include\rtos\internal\mbed_rtos1_types.h \
-  mbed-os\cmsis\CMSIS_5\CMSIS\RTOS2\RTX\Include1\cmsis_os.h \
-  mbed-os\platform\include\platform\Callback.h \
-  mbed-os\platform\cxxsupport\mstd_cstddef \
-  mbed-os\platform\cxxsupport\mstd_new \
-  mbed-os\platform\include\platform\mbed_assert.h \
+  mbed-os\platform\mbed_version.h mbed-os\rtos\rtos.h \
+  mbed-os\rtos\mbed_rtos_storage.h \
+  mbed-os\rtos\source\TARGET_CORTEX\mbed_rtx_storage.h \
+  mbed-os\rtos\source\TARGET_CORTEX\rtx5\RTX\Include\rtx_os.h \
+  mbed-os\rtos\source\TARGET_CORTEX\rtx5\Include\cmsis_os2.h \
+  mbed-os\rtos\source\TARGET_CORTEX\mbed_rtx_conf.h \
+  mbed-os\targets\TARGET_STM\mbed_rtx.h mbed-os\rtos\Kernel.h \
+  mbed-os\rtos\mbed_rtos_types.h mbed-os\rtos\Thread.h \
+  mbed-os\rtos\mbed_rtos1_types.h \
+  mbed-os\rtos\source\TARGET_CORTEX\rtx4\cmsis_os.h \
+  mbed-os\platform\Callback.h mbed-os\platform\mbed_assert.h \
+  mbed-os\platform\mbed_toolchain.h mbed-os\platform\mbed_preprocessor.h \
+  mbed-os\platform\NonCopyable.h mbed-os\rtos\Semaphore.h \
+  mbed-os\rtos\Mutex.h mbed-os\platform\ScopedLock.h \
+  mbed-os\rtos\ThisThread.h mbed-os\rtos\RtosTimer.h mbed-os\rtos\Mail.h \
+  mbed-os\rtos\Queue.h mbed-os\platform\mbed_error.h \
+  mbed-os\platform\mbed_retarget.h mbed-os\rtos\MemoryPool.h \
+  mbed-os\rtos\Kernel.h mbed-os\rtos\EventFlags.h \
+  mbed-os\rtos\ConditionVariable.h mbed-os\features\netsocket\nsapi.h \
+  mbed-os\features\netsocket\nsapi_types.h \
+  mbed-os\features\netsocket\SocketAddress.h \
+  mbed-os\platform\mbed_toolchain.h \
+  mbed-os\features\netsocket\NetworkStack.h \
+  mbed-os\features\netsocket\NetworkInterface.h \
+  mbed-os\features\netsocket\nsapi_types.h mbed-os\platform\Callback.h \
+  mbed-os\features\netsocket\DNS.h \
+  mbed-os\features\netsocket\EthInterface.h \
+  mbed-os\features\netsocket\WiFiInterface.h \
+  mbed-os\features\netsocket\WiFiAccessPoint.h \
+  mbed-os\features\netsocket\CellularBase.h \
+  mbed-os\features\netsocket\CellularInterface.h \
+  mbed-os\features\netsocket\MeshInterface.h \
+  mbed-os\features\netsocket\Socket.h \
+  mbed-os\features\netsocket\UDPSocket.h \
+  mbed-os\features\netsocket\InternetSocket.h \
+  mbed-os\platform\mbed_atomic.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\cmsis.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\device\stm32f4xx.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\device\stm32f401xe.h \
+  mbed-os\cmsis\TARGET_CORTEX_M\core_cm4.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\device\system_stm32f4xx.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_conf.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_rcc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_def.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32_hal_legacy.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_rcc_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_gpio.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_gpio_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_dma.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_dma_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_cortex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_adc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_ll_adc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_adc_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_can_legacy.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_crc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_cryp.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_dma2d.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_dac.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_dcmi.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_eth.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_flash.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_flash_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_flash_ramfunc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_sram.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_nor.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_nand.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_pccard.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_sdram.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_hash.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_i2c.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_i2c_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_i2s.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_i2s_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_iwdg.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_ltdc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_pwr.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_pwr_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_rng.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_rtc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_ll_rtc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_rtc_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_sai.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_sd.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_ll_sdmmc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_spi.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_tim.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_tim_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_uart.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_usart.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_irda.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_smartcard.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_wwdg.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_pcd.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_ll_usb.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_pcd_ex.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_hcd.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_dsi.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_qspi.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_cec.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_fmpi2c.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_spdifrx.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_dfsdm.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_lptim.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_hal_mmc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\device\cmsis_nvic.h \
   mbed-os\platform\cxxsupport\mstd_type_traits \
-  mbed-os\platform\cxxsupport\mstd_functional \
-  mbed-os\platform\cxxsupport\mstd_memory \
-  mbed-os\platform\cxxsupport\mstd_utility \
-  mbed-os\platform\cxxsupport\mstd_iterator \
-  mbed-os\platform\include\platform\NonCopyable.h \
-  mbed-os\rtos\include\rtos\Semaphore.h \
-  mbed-os\rtos\include\rtos\Mutex.h \
-  mbed-os\platform\include\platform\ScopedLock.h \
-  mbed-os\rtos\include\rtos\ThisThread.h \
-  mbed-os\rtos\include\rtos\Mail.h mbed-os\rtos\include\rtos\Queue.h \
-  mbed-os\platform\include\platform\mbed_error.h \
-  mbed-os\platform\include\platform\mbed_retarget.h \
-  mbed-os\rtos\include\rtos\MemoryPool.h \
-  mbed-os\rtos\include\rtos\EventFlags.h \
-  mbed-os\rtos\include\rtos\ConditionVariable.h \
-  mbed-os\connectivity\netsocket\include\netsocket\nsapi.h \
-  mbed-os\connectivity\netsocket\include\netsocket\nsapi_types.h \
-  mbed-os\connectivity\netsocket\include\netsocket\SocketAddress.h \
-  mbed-os\platform\include\platform\mbed_toolchain.h \
-  mbed-os\connectivity\netsocket\include\netsocket\NetworkStack.h \
-  mbed-os\connectivity\netsocket\include\netsocket\NetworkInterface.h \
-  mbed-os\connectivity\netsocket\include\netsocket\nsapi_types.h \
-  mbed-os\platform\include\platform\Callback.h \
-  mbed-os\connectivity\netsocket\include\netsocket\DNS.h \
-  mbed-os\connectivity\netsocket\include\netsocket\EthInterface.h \
-  mbed-os\connectivity\netsocket\include\netsocket\WiFiInterface.h \
-  mbed-os\connectivity\netsocket\include\netsocket\WiFiAccessPoint.h \
-  mbed-os\connectivity\netsocket\include\netsocket\CellularInterface.h \
-  mbed-os\connectivity\netsocket\include\netsocket\MeshInterface.h \
-  mbed-os\connectivity\netsocket\include\netsocket\Socket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\UDPSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\InternetSocket.h \
-  mbed-os\platform\include\platform\mbed_atomic.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\cmsis.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\CMSIS\stm32f4xx.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\CMSIS\stm32f401xe.h \
-  mbed-os\cmsis\CMSIS_5\CMSIS\TARGET_CORTEX_M\Include\core_cm4.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\CMSIS\system_stm32f4xx.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\stm32f4xx_hal_conf.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_rcc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_def.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\Legacy\stm32_hal_legacy.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_rcc_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_gpio.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_gpio_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_exti.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_dma.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_dma_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_cortex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_adc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_adc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_adc_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\Legacy\stm32f4xx_hal_can_legacy.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_crc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_cryp.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_dma2d.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_dac.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_dcmi.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_eth.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_flash.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_flash_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_flash_ramfunc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_sram.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_nor.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_nand.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_pccard.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_sdram.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_hash.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_i2c.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_i2c_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_smbus.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_i2s.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_i2s_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_iwdg.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_ltdc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_pwr.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_pwr_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_rng.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_rtc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_rtc_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_sai.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_sd.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_sdmmc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_spi.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_tim.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_tim_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_uart.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_usart.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_irda.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_smartcard.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_wwdg.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_pcd.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_usb.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_pcd_ex.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_hcd.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_dsi.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_qspi.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_cec.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_fmpi2c.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_fmpsmbus.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_spdifrx.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_dfsdm.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_lptim.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_hal_mmc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\cmsis_nvic.h \
-  mbed-os\platform\include\platform\internal\mbed_atomic_impl.h \
-  mbed-os\connectivity\netsocket\include\netsocket\SocketStats.h \
-  mbed-os\platform\include\platform\SingletonPtr.h \
-  mbed-os\platform\include\platform\mbed_atomic.h \
-  mbed-os\platform\include\platform\PlatformMutex.h \
-  mbed-os\connectivity\netsocket\include\netsocket\SocketAddress.h \
-  mbed-os\hal\include\hal\ticker_api.h \
+  mbed-os\platform\cxxsupport\mstd_cstddef \
+  mbed-os\platform\internal\mbed_atomic_impl.h \
+  mbed-os\features\netsocket\SocketStats.h \
+  mbed-os\platform\SingletonPtr.h mbed-os\platform\mbed_atomic.h \
+  mbed-os\platform\PlatformMutex.h \
+  mbed-os\features\netsocket\SocketAddress.h mbed-os\hal\ticker_api.h \
   mbed-os\targets\TARGET_STM\device.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\objects.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\cmsis.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\objects.h \
   mbed-os\targets\TARGET_STM\PortNames.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\PeripheralNames.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\TARGET_NUCLEO_F401RE\PeripheralNames.h \
   mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\TARGET_NUCLEO_F401RE\PinNames.h \
   mbed-os\targets\TARGET_STM\PinNamesTypes.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_usart.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_tim.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_pwr.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_adc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_rtc.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\STM32Cube_FW\STM32F4xx_HAL_Driver\stm32f4xx_ll_rcc.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\common_objects.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\cmsis.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_ll_usart.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_ll_tim.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\device\stm32f4xx_ll_pwr.h \
   mbed-os\targets\TARGET_STM\gpio_object.h \
-  mbed-os\platform\include\platform\mbed_assert.h \
-  mbed-os\targets\TARGET_STM\PortNames.h \
-  mbed-os\targets\TARGET_STM\TARGET_STM32F4\PeripheralNames.h \
-  mbed-os\connectivity\netsocket\include\netsocket\InternetDatagramSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\ICMPSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\TCPSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\TLSSocketWrapper.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\platform.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\config.h \
-  mbed-os\connectivity\mbedtls\platform\inc\platform_mbed.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\config-no-entropy.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\check_config.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\platform_time.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\ssl.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\bignum.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\ecp.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\ssl_ciphersuites.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\pk.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\md.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\rsa.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\ecdsa.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\cipher.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\platform_util.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\x509_crt.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\x509.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\asn1.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\x509_crl.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\entropy.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\sha512.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\ctr_drbg.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\aes.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\hmac_drbg.h \
-  mbed-os\connectivity\mbedtls\include\mbedtls\error.h \
-  mbed-os\connectivity\netsocket\include\netsocket\DTLSSocketWrapper.h \
-  mbed-os\connectivity\netsocket\include\netsocket\TLSSocketWrapper.h \
-  mbed-os\connectivity\netsocket\include\netsocket\TLSSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\DTLSSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\DTLSSocketWrapper.h \
-  mbed-os\connectivity\netsocket\include\netsocket\UDPSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\nsapi_ppp.h \
-  mbed-os\platform\include\platform\FileHandle.h \
-  mbed-os\platform\include\platform\mbed_poll.h \
-  mbed-os\platform\include\platform\platform.h \
-  mbed-os\hal\include\hal\PinNameAliases.h \
-  mbed-os\connectivity\netsocket\include\netsocket\NetworkStack.h \
-  mbed-os\events\include\events\mbed_events.h \
-  mbed-os\events\include\events\EventQueue.h \
-  mbed-os\events\include\events\equeue.h \
-  mbed-os\events\include\events\internal\equeue_platform.h \
-  mbed-os\rtos\include\rtos\internal\mbed_rtos_storage.h \
-  mbed-os\events\include\events\Event.h \
-  mbed-os\events\include\events\UserAllocatedEvent.h \
-  mbed-os\events\include\events\mbed_shared_queues.h \
-  mbed-os\storage\filesystem\include\filesystem\mbed_filesystem.h \
-  mbed-os\storage\filesystem\include\filesystem\FileSystem.h \
-  mbed-os\platform\include\platform\FileBase.h \
-  mbed-os\platform\include\platform\FileHandle.h \
-  mbed-os\platform\include\platform\DirHandle.h \
-  mbed-os\platform\include\platform\FileSystemLike.h \
-  mbed-os\platform\include\platform\FileSystemHandle.h \
-  mbed-os\storage\blockdevice\include\blockdevice\BlockDevice.h \
-  mbed-os\storage\filesystem\include\filesystem\File.h \
-  mbed-os\storage\filesystem\include\filesystem\Dir.h \
-  mbed-os\storage\blockdevice\include\blockdevice\ChainingBlockDevice.h \
-  mbed-os\storage\blockdevice\include\blockdevice\BlockDevice.h \
-  mbed-os\storage\blockdevice\include\blockdevice\SlicingBlockDevice.h \
-  mbed-os\storage\blockdevice\include\blockdevice\HeapBlockDevice.h \
-  mbed-os\platform\include\platform\mbed_application.h \
-  mbed-os\platform\include\platform\mbed_interface.h \
-  mbed-os\platform\include\platform\mbed_debug.h \
-  mbed-os\drivers\include\drivers\DigitalIn.h \
-  mbed-os\drivers\include\drivers\interfaces\InterfaceDigitalIn.h \
-  mbed-os\hal\include\hal\gpio_api.h mbed-os\hal\include\hal\pinmap.h \
-  mbed-os\drivers\include\drivers\DigitalOut.h \
-  mbed-os\drivers\include\drivers\interfaces\InterfaceDigitalOut.h \
-  mbed-os\drivers\include\drivers\DigitalInOut.h \
-  mbed-os\drivers\include\drivers\interfaces\InterfaceDigitalInOut.h \
-  mbed-os\drivers\include\drivers\BusIn.h \
-  mbed-os\drivers\include\drivers\BusOut.h \
-  mbed-os\drivers\include\drivers\BusInOut.h \
-  mbed-os\drivers\include\drivers\PortIn.h \
-  mbed-os\hal\include\hal\port_api.h \
-  mbed-os\drivers\include\drivers\PortInOut.h \
-  mbed-os\drivers\include\drivers\PortOut.h \
-  mbed-os\drivers\include\drivers\AnalogIn.h \
-  mbed-os\hal\include\hal\analogin_api.h \
-  mbed-os\drivers\include\drivers\AnalogOut.h \
-  mbed-os\drivers\include\drivers\PwmOut.h \
-  mbed-os\hal\include\hal\pwmout_api.h \
-  mbed-os\drivers\include\drivers\SPI.h \
-  mbed-os\hal\include\hal\spi_api.h mbed-os\hal\include\hal\dma_api.h \
-  mbed-os\hal\include\hal\buffer.h \
-  mbed-os\platform\include\platform\CThunk.h \
-  mbed-os\platform\include\platform\internal\CThunkBase.h \
-  mbed-os\platform\include\platform\CircularBuffer.h \
-  mbed-os\platform\include\platform\mbed_critical.h \
-  mbed-os\platform\include\platform\Span.h \
-  mbed-os\platform\include\platform\Transaction.h \
-  mbed-os\drivers\include\drivers\SPISlave.h \
-  mbed-os\drivers\include\drivers\I2C.h \
-  mbed-os\hal\include\hal\i2c_api.h \
-  mbed-os\drivers\include\drivers\I2CSlave.h \
-  mbed-os\drivers\include\drivers\CAN.h \
-  mbed-os\drivers\include\drivers\UnbufferedSerial.h \
-  mbed-os\drivers\include\drivers\SerialBase.h \
-  mbed-os\hal\include\hal\serial_api.h \
-  mbed-os\drivers\include\drivers\BufferedSerial.h \
-  mbed-os\drivers\include\drivers\InterruptIn.h \
-  mbed-os\hal\include\hal\gpio_irq_api.h \
-  mbed-os\drivers\include\drivers\FlashIAP.h \
-  mbed-os\hal\include\hal\flash_api.h \
-  mbed-os\drivers\include\drivers\MbedCRC.h \
-  mbed-os\hal\include\hal\crc_api.h \
-  mbed-os\drivers\include\drivers\QSPI.h \
-  mbed-os\drivers\include\drivers\Watchdog.h \
-  mbed-os\hal\include\hal\watchdog_api.h \
-  mbed-os\drivers\include\drivers\ResetReason.h \
-  mbed-os\hal\include\hal\reset_reason_api.h \
-  mbed-os\drivers\include\drivers\HighResClock.h \
-  mbed-os\hal\include\hal\us_ticker_api.h \
-  mbed-os\platform\include\platform\mbed_power_mgmt.h \
-  mbed-os\drivers\include\drivers\Timer.h \
-  mbed-os\drivers\include\drivers\TickerDataClock.h \
-  mbed-os\drivers\include\drivers\Ticker.h \
-  mbed-os\drivers\include\drivers\TimerEvent.h \
-  mbed-os\hal\include\hal\lp_ticker_api.h \
-  mbed-os\drivers\include\drivers\Timeout.h \
-  mbed-os\drivers\include\drivers\LowPowerClock.h \
-  mbed-os\drivers\include\drivers\LowPowerTimeout.h \
-  mbed-os\drivers\include\drivers\LowPowerTicker.h \
-  mbed-os\drivers\include\drivers\LowPowerTimer.h \
-  mbed-os\drivers\include\drivers\RealTimeClock.h \
-  mbed-os\hal\include\hal\rtc_api.h \
-  mbed-os\platform\include\platform\LocalFileSystem.h \
-  mbed-os\platform\include\platform\mbed_wait_api.h \
-  mbed-os\platform\include\platform\mbed_thread.h \
-  mbed-os\hal\include\hal\sleep_api.h \
-  mbed-os\platform\include\platform\mbed_rtc_time.h \
-  mbed-os\platform\include\platform\ATCmdParser.h \
-  mbed-os\platform\include\platform\CriticalSectionLock.h \
-  mbed-os\platform\include\platform\DeepSleepLock.h \
-  mbed-os\platform\include\platform\ScopedRomWriteLock.h \
-  mbed-os\platform\include\platform\mbed_mpu_mgmt.h \
-  mbed-os\hal\include\hal\mpu_api.h \
-  mbed-os\platform\include\platform\ScopedRamExecutionLock.h \
-  mbed-os\platform\include\platform\mbed_stats.h \
-  mbed-os\platform\include\platform\Stream.h \
-  mbed-os\platform\include\platform\FileLike.h \
-  mbed-os\drivers\include\drivers\Timer.h \
+  mbed-os\platform\mbed_assert.h mbed-os\targets\TARGET_STM\PortNames.h \
+  mbed-os\targets\TARGET_STM\us_ticker_defines.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\device\us_ticker_data.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\device\stm32f4xx.h \
+  mbed-os\targets\TARGET_STM\TARGET_STM32F4\TARGET_STM32F401xE\device\cmsis_nvic.h \
+  mbed-os\features\netsocket\InternetDatagramSocket.h \
+  mbed-os\features\netsocket\ICMPSocket.h \
+  mbed-os\features\netsocket\TCPSocket.h \
+  mbed-os\features\netsocket\TCPServer.h \
+  mbed-os\features\netsocket\TLSSocketWrapper.h \
+  mbed-os\features\mbedtls\inc\mbedtls\platform.h \
+  mbed-os\features\mbedtls\inc\mbedtls\config.h \
+  mbed-os\features\mbedtls\platform\inc\platform_mbed.h \
+  mbed-os\features\mbedtls\inc\mbedtls\config-no-entropy.h \
+  mbed-os\features\mbedtls\inc\mbedtls\check_config.h \
+  mbed-os\features\mbedtls\inc\mbedtls\platform_time.h \
+  mbed-os\features\mbedtls\inc\mbedtls\ssl.h \
+  mbed-os\features\mbedtls\inc\mbedtls\bignum.h \
+  mbed-os\features\mbedtls\inc\mbedtls\ecp.h \
+  mbed-os\features\mbedtls\inc\mbedtls\ssl_ciphersuites.h \
+  mbed-os\features\mbedtls\inc\mbedtls\pk.h \
+  mbed-os\features\mbedtls\inc\mbedtls\md.h \
+  mbed-os\features\mbedtls\inc\mbedtls\rsa.h \
+  mbed-os\features\mbedtls\inc\mbedtls\ecdsa.h \
+  mbed-os\features\mbedtls\inc\mbedtls\cipher.h \
+  mbed-os\features\mbedtls\inc\mbedtls\platform_util.h \
+  mbed-os\features\mbedtls\inc\mbedtls\x509_crt.h \
+  mbed-os\features\mbedtls\inc\mbedtls\x509.h \
+  mbed-os\features\mbedtls\inc\mbedtls\asn1.h \
+  mbed-os\features\mbedtls\inc\mbedtls\x509_crl.h \
+  mbed-os\features\mbedtls\inc\mbedtls\entropy.h \
+  mbed-os\features\mbedtls\inc\mbedtls\sha512.h \
+  mbed-os\features\mbedtls\inc\mbedtls\ctr_drbg.h \
+  mbed-os\features\mbedtls\inc\mbedtls\aes.h \
+  mbed-os\features\mbedtls\inc\mbedtls\hmac_drbg.h \
+  mbed-os\features\mbedtls\inc\mbedtls\error.h \
+  mbed-os\features\netsocket\DTLSSocketWrapper.h \
+  mbed-os\features\netsocket\TLSSocketWrapper.h \
+  mbed-os\features\netsocket\TLSSocket.h \
+  mbed-os\features\netsocket\DTLSSocket.h \
+  mbed-os\features\netsocket\DTLSSocketWrapper.h \
+  mbed-os\features\netsocket\UDPSocket.h \
+  mbed-os\features\netsocket\nsapi_ppp.h mbed-os\platform\FileHandle.h \
+  mbed-os\platform\mbed_poll.h mbed-os\platform\platform.h \
+  mbed-os\features\netsocket\NetworkStack.h mbed-os\events\mbed_events.h \
+  mbed-os\events\EventQueue.h mbed-os\events\equeue.h \
+  mbed-os\events\internal\equeue_platform.h \
+  mbed-os\rtos\mbed_rtos_storage.h mbed-os\events\Event.h \
+  mbed-os\events\UserAllocatedEvent.h \
+  mbed-os\events\mbed_shared_queues.h \
+  mbed-os\features\storage\filesystem\mbed_filesystem.h \
+  mbed-os\features\storage\filesystem\FileSystem.h \
+  mbed-os\platform\FileBase.h mbed-os\platform\FileHandle.h \
+  mbed-os\platform\DirHandle.h mbed-os\platform\FileSystemLike.h \
+  mbed-os\platform\FileSystemHandle.h \
+  mbed-os\features\storage\blockdevice\BlockDevice.h \
+  mbed-os\features\storage\filesystem\File.h \
+  mbed-os\features\storage\filesystem\Dir.h \
+  mbed-os\features\storage\blockdevice\ChainingBlockDevice.h \
+  mbed-os\features\storage\blockdevice\BlockDevice.h \
+  mbed-os\features\storage\blockdevice\SlicingBlockDevice.h \
+  mbed-os\features\storage\blockdevice\HeapBlockDevice.h \
+  mbed-os\platform\mbed_toolchain.h mbed-os\platform\platform.h \
+  mbed-os\platform\mbed_application.h mbed-os\platform\mbed_error.h \
+  mbed-os\platform\mbed_interface.h mbed-os\platform\mbed_assert.h \
+  mbed-os\platform\mbed_debug.h mbed-os\drivers\DigitalIn.h \
+  mbed-os\hal\gpio_api.h mbed-os\hal\pinmap.h \
+  mbed-os\drivers\DigitalOut.h mbed-os\drivers\DigitalInOut.h \
+  mbed-os\drivers\BusIn.h mbed-os\drivers\DigitalIn.h \
+  mbed-os\drivers\BusOut.h mbed-os\drivers\DigitalOut.h \
+  mbed-os\drivers\BusInOut.h mbed-os\drivers\DigitalInOut.h \
+  mbed-os\drivers\PortIn.h mbed-os\hal\port_api.h \
+  mbed-os\drivers\PortInOut.h mbed-os\drivers\PortOut.h \
+  mbed-os\drivers\AnalogIn.h mbed-os\hal\analogin_api.h \
+  mbed-os\drivers\AnalogOut.h mbed-os\drivers\PwmOut.h \
+  mbed-os\hal\pwmout_api.h mbed-os\drivers\Serial.h \
+  mbed-os\platform\Stream.h mbed-os\platform\FileLike.h \
+  mbed-os\drivers\SerialBase.h mbed-os\hal\serial_api.h \
+  mbed-os\hal\buffer.h mbed-os\hal\dma_api.h mbed-os\platform\CThunk.h \
+  mbed-os\platform\internal\CThunkBase.h mbed-os\drivers\SPI.h \
+  mbed-os\hal\spi_api.h mbed-os\platform\CircularBuffer.h \
+  mbed-os\platform\mbed_critical.h mbed-os\platform\Transaction.h \
+  mbed-os\drivers\SPISlave.h mbed-os\drivers\I2C.h mbed-os\hal\i2c_api.h \
+  mbed-os\drivers\I2CSlave.h mbed-os\drivers\Ethernet.h \
+  mbed-os\drivers\CAN.h mbed-os\drivers\RawSerial.h \
+  mbed-os\drivers\UARTSerial.h mbed-os\drivers\InterruptIn.h \
+  mbed-os\hal\gpio_irq_api.h mbed-os\drivers\FlashIAP.h \
+  mbed-os\hal\flash_api.h mbed-os\drivers\MbedCRC.h \
+  mbed-os\drivers\internal\TableCRC.h mbed-os\hal\crc_api.h \
+  mbed-os\drivers\QSPI.h mbed-os\drivers\Watchdog.h \
+  mbed-os\hal\watchdog_api.h mbed-os\drivers\ResetReason.h \
+  mbed-os\hal\reset_reason_api.h mbed-os\drivers\Timer.h \
+  mbed-os\drivers\Ticker.h mbed-os\platform\cxxsupport\mstd_utility \
+  mbed-os\drivers\TimerEvent.h mbed-os\hal\lp_ticker_api.h \
+  mbed-os\drivers\Timeout.h mbed-os\drivers\Ticker.h \
+  mbed-os\drivers\LowPowerTimeout.h mbed-os\drivers\LowPowerTicker.h \
+  mbed-os\drivers\LowPowerTicker.h mbed-os\drivers\LowPowerTimer.h \
+  mbed-os\drivers\Timer.h mbed-os\platform\LocalFileSystem.h \
+  mbed-os\drivers\InterruptIn.h mbed-os\platform\mbed_wait_api.h \
+  mbed-os\platform\mbed_thread.h mbed-os\hal\sleep_api.h \
+  mbed-os\platform\mbed_atomic.h mbed-os\platform\mbed_power_mgmt.h \
+  mbed-os\platform\mbed_rtc_time.h mbed-os\platform\mbed_poll.h \
+  mbed-os\platform\ATCmdParser.h mbed-os\platform\FileSystemHandle.h \
+  mbed-os\platform\FileHandle.h mbed-os\platform\DirHandle.h \
+  mbed-os\platform\CriticalSectionLock.h \
+  mbed-os\platform\DeepSleepLock.h mbed-os\platform\ScopedRomWriteLock.h \
+  mbed-os\platform\mbed_mpu_mgmt.h mbed-os\hal\mpu_api.h \
+  mbed-os\platform\ScopedRamExecutionLock.h \
+  mbed-os\platform\mbed_stats.h mbed-os\platform\Callback.h \
+  mbed-os\platform\FunctionPointer.h mbed-os\platform\ScopedLock.h \
+  mbed-os\drivers\Timer.h \
   mbed-mqtt\paho_mqtt_embedded_c\MQTTClient\src\mbed\MQTTmbed.h \
   mbed-mqtt\src\MQTTClientMbedOs.h \
-  mbed-os\connectivity\netsocket\include\netsocket\TCPSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\TLSSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\DTLSSocket.h \
-  mbed-os\connectivity\netsocket\include\netsocket\UDPSocket.h \
+  mbed-os\features\netsocket\TCPSocket.h \
+  mbed-os\features\netsocket\TLSSocket.h \
+  mbed-os\features\netsocket\DTLSSocket.h \
+  mbed-os\features\netsocket\UDPSocket.h \
   mbed-os\features\frameworks\unity\unity\unity.h \
   mbed-os\features\frameworks\unity\unity\unity_internals.h \
   mbed-os\features\frameworks\unity\unity\unity_config.h \
@@ -326,6 +267,4 @@ BUILD\NUCLEO_F401RE\ARMC6\main.o: main.cpp \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTSNClient.h \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\FP.h \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTLogging.h \
-  Autus\DS18B20Multiple\DS18B20.h \
-  Autus\DS18B20Multiple\OneWireThermometer.h \
-  Autus\DS18B20Multiple\OneWireCRC.h Autus\DS18B20Multiple\OneWireDefs.h
+  DS1820\DS1820.h DS1820\OneWire\OneWire.h mbed-os\drivers\SerialBase.h

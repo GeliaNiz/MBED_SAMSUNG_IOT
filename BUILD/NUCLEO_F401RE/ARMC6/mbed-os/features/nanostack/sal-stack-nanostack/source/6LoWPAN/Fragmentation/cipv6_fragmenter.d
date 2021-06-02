@@ -47,6 +47,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\mac_neighbor_table\mac_neighbor_table.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_polling_api.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\Mesh\mesh.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\IPHC_Decode\iphc_decompress.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\nwk_stats_api.h \

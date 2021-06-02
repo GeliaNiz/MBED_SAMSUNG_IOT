@@ -129,7 +129,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\components\802.15.4_RF\atmel-rf-driver\source\
   mbed-os\hal\lp_ticker_api.h mbed-os\drivers\SPI.h \
   mbed-os\hal\spi_api.h mbed-os\drivers\DigitalOut.h \
   mbed-os\platform\CircularBuffer.h mbed-os\platform\mbed_critical.h \
-  mbed-os\platform\Transaction.h \
+  mbed-os\platform\Transaction.h mbed-os\platform\mbed_version.h \
   mbed-os\components\802.15.4_RF\atmel-rf-driver\source\rfbits.h \
   mbed-os\drivers\DigitalIn.h mbed-os\drivers\DigitalOut.h \
   mbed-os\drivers\InterruptIn.h mbed-os\hal\gpio_irq_api.h \

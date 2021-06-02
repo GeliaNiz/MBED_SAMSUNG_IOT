@@ -26,6 +26,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\frameworks\mbed-client-randlib\mbed-client-randlib\randLIB.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\platform\arm_hal_interrupt.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\common_functions.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\sw_mac.h \

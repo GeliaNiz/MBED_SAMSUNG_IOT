@@ -21,6 +21,9 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_types.h \
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
+  mbed-os\features\frameworks\mbed-client-randlib\mbed-client-randlib\randLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\common_functions.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_interface.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_phy.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\socket_api.h \
@@ -59,21 +62,25 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack\source\
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_bootstrap.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_cfg_settings.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_pae_key_storage.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_pae_nvm_store.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_control.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\RPL\rpl_data.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\icmpv6.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\icmpv6_prefix.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\icmpv6_radv.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\Common_Protocols\ip.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ws_management_api.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\fhss_config.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_rpl.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\Service_Libs\nd_proxy\nd_proxy.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_bbr_api_internal.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\ws\ws_pae_controller.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\source\6LoWPAN\lowpan_adaptation_interface.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\DHCPv6_Server\DHCPv6_server_service.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\libDHCPv6\libDHCPv6.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\libDHCPv6\libDHCPv6_server.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\DHCPv6_client\dhcpv6_client_api.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\libDHCPv6\libDHCPv6_vendordata.h \
   mbed-os\features\nanostack\sal-stack-nanostack\source\libNET\src\net_dns_internal.h \
+  mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\os_whiteboard.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ws_bbr_api.h

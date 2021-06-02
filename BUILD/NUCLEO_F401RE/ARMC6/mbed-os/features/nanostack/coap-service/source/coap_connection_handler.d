@@ -18,6 +18,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\coap-service\source\coap_co
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\ns_trace.h \
   mbed-os\features\frameworks\mbed-trace\mbed-trace\mbed_trace.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\socket_api.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\ns_address.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_interface.h \

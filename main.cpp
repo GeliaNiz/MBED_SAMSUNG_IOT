@@ -11,18 +11,20 @@
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
-#include "DS18B20.h"
+#include "DS1820.h"
 
 WiFiInterface *wifi;
 AnalogIn light(A1);
 AnalogIn humidity(A0);
 DigitalOut pump(D3);
-DS18B20 temp(A2);
+DS1820 temp(A3);
 
 Thread humidityThread;
 Thread lightThread;
+Thread tempThread;
 
-char* host = "192.168.43.186";
+bool manual = false;
+char* host = "192.168.0.75";
 int port = 1883;
 const char* global_topic = "%/";
 
@@ -50,7 +52,7 @@ void messageSend(const char* topic, char* message)
     messg.retained = false;
     messg.dup = false;
     messg.payload = (void*)message;
-    messg.payloadlen = strlen(message)+1;
+    messg.payloadlen = strlen(message);
     rc = client.publish(buff,messg);
 }
 
@@ -65,11 +67,10 @@ void initializeMQTTConnection(NetworkInterface* net)
     printf("rc from TCP connect is %d\n", rc);
     MQTTPacket_connectData data = MQTTPacket_connectData_initializer;
     data.MQTTVersion = 3;
-    data.clientID.cstring = "236";
     data.username.cstring = "Nucleo_client_2";
-    data.clientID.cstring = "1";
+    data.clientID.cstring = "nucleo_1";
     char nameBuf[30];
-    snprintf(nameBuf, sizeof(nameBuf), "POR_CLIENT_%d",pot_id);
+    snprintf(nameBuf, sizeof(nameBuf), "POT_CLIENT_%d",pot_id);
     data.username.cstring = "POT_CLIENT";
     client.connect(data);
     printf("Connected to MQTT\n");
@@ -96,12 +97,17 @@ const char *sec2str(nsapi_security_t sec)
 
 void TemperatureHandler()
 {
-    float tmp = temp.readTemperature(0);
-    if(isnan(tmp)){
-        printf("Failed to read temperature !\n");
-    }
-     else{
-        printf("Temperature: %f\n",tmp);
+    if(temp.begin()){
+        while(true){
+            temp.startConversion();
+            float tmp = temp.read();
+            if(isnan(tmp)){
+                printf("Failed to read temperature !\n");
+            }
+            else{
+                printf("Temperature: %f\n",tmp);
+            }
+        }
     }
 }
 
@@ -126,13 +132,16 @@ void HumidityHandler()
 {
     while(true){
         float hmd = humidity.read();
-        if(hmd<desire.humidity-0.1){
-            pump = 1;
-            while(hmd<desire.humidity){
-                hmd = humidity.read();
-                wait_us(100000);
+        if(!manual){
+            if(hmd<desire.humidity-0.1){
+                pump = 1;
+                while(hmd<desire.humidity){
+                    if(manual) break;
+                    hmd = humidity.read();
+                    wait_us(100000);
+                }
+                pump = 0;
             }
-            pump = 0;
         }
         if(isnan(hmd)){
             printf("Failed to read humidity!");
@@ -149,22 +158,32 @@ void HumidityHandler()
 
 void messageArrived(MQTT::MessageData& md){
     MQTT::Message &message = md.message;
-    char* topic = md.topicName.cstring;
+    char topic[md.topicName.lenstring.len+1]; 
+    char msg[message.payloadlen+1];
+    snprintf(msg, sizeof(msg), "%.*s\r\n",message.payloadlen, (char*)message.payload);
+    snprintf(topic, sizeof(topic), "%.*s\r\n", md.topicName.lenstring.len, (char*)md.topicName.lenstring.data);
     if (strcmp(topic,"%/update")==0){
         LightHandler();
         HumidityHandler();
     }
-    if(strcmp(topic,"%/1/humidity")==0){
-        desire.humidity = atoi((char*)message.payload);
+    if(strcmp(topic,"%/1/desire/humidity")==0){
+        desire.humidity = atof(msg);
     }
-    if(strcmp(topic,"%/1/light")==0){
-        desire.light = atoi((char*)message.payload);
+    if(strcmp(topic,"%/1/desire/light")==0){
+        desire.light = atof(msg);
+        
     }
-    if(strcmp(topic,"%/1/control_pump")==0){
-        pump=atoi((char*)message.payload);
-        printf("Pump should be %d",atoi((char*)message.payload));
+    if(strcmp((char*)topic,"%/1/control_pump")==0){
+        if(manual){
+            pump=atoi(msg);
+            printf("Pump should be %d\n",atoi(msg));
+            printf("%d\n",atoi((char*)msg));
+        }
     }
-
+    if(strcmp((char*)topic,"%/1/manual")==0){
+        manual=strcmp((char*)msg,"1")==0;
+        printf("Manual: %d\n",manual);
+    }
 }
 
 int find_network(WiFiInterface *wifi)
@@ -197,11 +216,6 @@ int find_network(WiFiInterface *wifi)
     return count;
 }
 
-int connect_wifi(WiFiInterface *wifi)
-{
-    
-    return 1;
-}
 
 int main()
 {
@@ -226,22 +240,15 @@ int main()
 
     printf("Success\n\n");
 
-    printf("MAC: %s\n", wifi->get_mac_address());
-    SocketAddress a;
-    wifi->get_ip_address(&a);
-    printf("IP: %s\n", a.get_ip_address());
-    wifi->get_netmask(&a);
-    printf("Netmask: %s\n", a.get_ip_address());
-    wifi->get_gateway(&a);
-    printf("Gateway: %s\n", a.get_ip_address());
-    printf("RSSI: %d\n\n", wifi->get_rssi());
     initializeMQTTConnection(wifi);
+    client.subscribe("%/#", MQTT::QOS0, messageArrived);
+    //printf("Subscribe status: %d",rc);
 
     humidityThread.start(HumidityHandler);
-    lightThread.start(LightHandler);
+    //lightThread.start(LightHandler);
+    tempThread.start(TemperatureHandler);
     while(true){
-        TemperatureHandler();
-        wait_us(500000);
+        client.yield(100);
     }
     wifi->disconnect();
 

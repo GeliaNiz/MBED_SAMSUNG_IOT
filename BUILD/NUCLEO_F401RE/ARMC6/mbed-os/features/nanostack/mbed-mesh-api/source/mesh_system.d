@@ -9,6 +9,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\mbed-mesh-api\source\mesh_s
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\net_interface.h \
   mbed-os\features\nanostack\sal-stack-nanostack\nanostack\platform\arm_hal_phy.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\frameworks\mbed-client-randlib\mbed-client-randlib\randLIB.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\platform\arm_hal_timer.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\platform\eventloop_config.h \

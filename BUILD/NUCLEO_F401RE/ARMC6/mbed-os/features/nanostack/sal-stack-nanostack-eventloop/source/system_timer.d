@@ -10,6 +10,7 @@ BUILD\NUCLEO_F401RE\ARMC6\mbed-os\features\nanostack\sal-stack-nanostack-eventlo
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\platform\arm_hal_timer.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\platform\eventloop_config.h \
   mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmemLIB.h \
+  mbed-os\features\frameworks\nanostack-libservice\mbed-client-libservice\nsdynmem_tracker.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\eventOS_event_timer.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\nanostack-event-loop\eventOS_event.h \
   mbed-os\features\nanostack\sal-stack-nanostack-eventloop\source\event.h \
