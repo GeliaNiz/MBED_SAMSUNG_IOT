@@ -12,6 +12,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "DS1820.h"
+#include "Mutex.h"
 
 WiFiInterface *wifi;
 AnalogIn light(A1);
@@ -24,7 +25,7 @@ Thread lightThread;
 Thread tempThread;
 
 bool manual = false;
-char* host = "192.168.0.75";
+char* host = "192.168.43.120";
 int port = 1883;
 const char* global_topic = "%/";
 
@@ -40,7 +41,6 @@ struct desired{
 };
 
 struct desired desire;
-
 
 void messageSend(const char* topic, char* message)
 {
@@ -121,9 +121,9 @@ void LightHandler()
         else{
             printf("Light: %f\n",lgt);
         }
-        char buffer[64];
-        snprintf(buffer, sizeof(buffer), "%f", lgt);
-        messageSend("1/light", buffer);
+        char lgt_buf[64];
+        snprintf(lgt_buf, sizeof(lgt_buf), "%f", lgt);
+        messageSend("1/light", lgt_buf);
         wait_us(2000000);
     }
 }
@@ -135,9 +135,20 @@ void HumidityHandler()
         if(!manual){
             if(hmd<desire.humidity-0.1){
                 pump = 1;
+                lightThread.wait(500);
+                char hum_buf[64];
+                snprintf(hum_buf, sizeof(hum_buf), "%d", 1);
+                messageSend("1/pump", hum_buf);
+                int time = 0;
                 while(hmd<desire.humidity){
                     if(manual) break;
                     hmd = humidity.read();
+                    time++;
+                    // if(time>=20){
+                    //     snprintf(buffer, sizeof(buffer), "%f", hmd);
+                    //     messageSend("1/humidity", buffer);
+                    //     time = 0;
+                    // }
                     wait_us(100000);
                 }
                 pump = 0;
@@ -245,7 +256,7 @@ int main()
     //printf("Subscribe status: %d",rc);
 
     humidityThread.start(HumidityHandler);
-    //lightThread.start(LightHandler);
+    lightThread.start(LightHandler);
     tempThread.start(TemperatureHandler);
     while(true){
         client.yield(100);
