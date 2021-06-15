@@ -2,11 +2,11 @@
     "config": {
         "wifi-ssid": {
             "help": "WiFi SSID",
-            "value": "\"RedmiWiFi\""
+            "value": "\"Miki_san\""
         },
         "wifi-password": {
             "help": "WiFi Password",
-            "value": "\"12345678\""
+            "value": "\"angmihmax\""
         },
          "tx": {
             "help": "TX pin for serial connection",

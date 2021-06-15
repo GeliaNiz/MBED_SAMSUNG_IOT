@@ -266,6 +266,4 @@ BUILD\NUCLEO_F401RE\ARMC6\main.o: main.cpp \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNPacket\src\MQTTSNSearch.h \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTSNClient.h \
   mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\FP.h \
-  mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTLogging.h \
-  DS1820\DS1820.h DS1820\OneWire\OneWire.h mbed-os\drivers\SerialBase.h \
-  mbed-os\rtos\Mutex.h
+  mbed-mqtt\paho_mqtt-sn_embedded_c\MQTTSNClient\src\MQTTLogging.h

@@ -11,14 +11,14 @@
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
-#include "DS1820.h"
-#include "Mutex.h"
+// #include "DS1820.h"
+
 
 WiFiInterface *wifi;
 AnalogIn light(A1);
 AnalogIn humidity(A0);
 DigitalOut pump(D3);
-DS1820 temp(A3);
+// DS1820 temp(A3);
 
 Thread humidityThread;
 Thread lightThread;
@@ -33,7 +33,7 @@ TCPSocket socket;
 MQTTClient client(&socket);
 int rc;
 int pot_id;
-
+UDPSocket UDPsock;
 
 struct desired{
     double humidity;
@@ -95,21 +95,21 @@ const char *sec2str(nsapi_security_t sec)
     }
 }
 
-void TemperatureHandler()
-{
-    if(temp.begin()){
-        while(true){
-            temp.startConversion();
-            float tmp = temp.read();
-            if(isnan(tmp)){
-                printf("Failed to read temperature !\n");
-            }
-            else{
-                printf("Temperature: %f\n",tmp);
-            }
-        }
-    }
-}
+// void TemperatureHandler()
+// {
+//     if(temp.begin()){
+//         while(true){
+//             temp.startConversion();
+//             float tmp = temp.read();
+//             if(isnan(tmp)){
+//                 printf("Failed to read temperature !\n");
+//             }
+//             else{
+//                 printf("Temperature: %f\n",tmp);
+//             }
+//         }
+//     }
+// }
 
 void LightHandler()
 {
@@ -228,8 +228,9 @@ int find_network(WiFiInterface *wifi)
 }
 
 
-int main()
-{
+int main(void)
+{   
+    SocketAddress sockAddrUDP;
     wifi = WiFiInterface::get_default_instance();
     if (!wifi) {
             printf("ERROR: No WiFiInterface found.\n");
@@ -241,6 +242,7 @@ int main()
         printf("No WIFI APs found - can't continue further.\n");
         return -1;
     }
+    
 
     printf("\nConnecting to %s...\n", MBED_CONF_APP_WIFI_SSID);
     int ret = wifi->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
@@ -250,14 +252,25 @@ int main()
     }
 
     printf("Success\n\n");
-
+    // sockAddrUDP = wifi->get_ip_address();
+    UDPsock.open(wifi);
+    UDPsock.bind(8090);
+    char connBuffer[32]="aaaaaaaaaaa";
+    
+    sockAddrUDP.set_ip_address("255.255.255.255");
+    sockAddrUDP.set_port(8090);
+    UDPsock.sendto(sockAddrUDP,connBuffer, sizeof(connBuffer));
+    UDPsock.recvfrom(&sockAddrUDP, connBuffer, sizeof(connBuffer));
+    printf("%s",sockAddrUDP.get_ip_address());
+    UDPsock.sendto(sockAddrUDP,"CONNECTION", 10);
+    printf("got %s\n",connBuffer);
     initializeMQTTConnection(wifi);
     client.subscribe("%/#", MQTT::QOS0, messageArrived);
     
 
-    humidityThread.start(HumidityHandler);
-    lightThread.start(LightHandler);
-    tempThread.start(TemperatureHandler);
+    // humidityThread.start(HumidityHandler);
+    // lightThread.start(LightHandler);
+    // tempThread.start(TemperatureHandler);
     while(true){
         client.yield(100);
     }
