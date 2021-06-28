@@ -11,14 +11,17 @@
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
-// #include "DS1820.h"
+#include "DS1820.h"
+
+
+
 
 
 WiFiInterface *wifi;
 AnalogIn light(A1);
 AnalogIn humidity(A0);
 DigitalOut pump(D3);
-// DS1820 temp(A3);
+DS1820 temp(A3);
 
 Thread humidityThread;
 Thread lightThread;
@@ -67,6 +70,7 @@ void initializeMQTTConnection(NetworkInterface* net)
     printf("rc from TCP connect is %d\n", rc);
     MQTTPacket_connectData data = MQTTPacket_connectData_initializer;
     data.MQTTVersion = 3;
+    data.keepAliveInterval=60;
     data.username.cstring = "Nucleo_client_2";
     data.clientID.cstring = "nucleo_1";
     char nameBuf[30];
@@ -95,21 +99,21 @@ const char *sec2str(nsapi_security_t sec)
     }
 }
 
-// void TemperatureHandler()
-// {
-//     if(temp.begin()){
-//         while(true){
-//             temp.startConversion();
-//             float tmp = temp.read();
-//             if(isnan(tmp)){
-//                 printf("Failed to read temperature !\n");
-//             }
-//             else{
-//                 printf("Temperature: %f\n",tmp);
-//             }
-//         }
-//     }
-// }
+void TemperatureHandler()
+{
+    if(temp.begin()){
+        while(true){
+            temp.startConversion();
+            float tmp = temp.read();
+            if(isnan(tmp)){
+                printf("Failed to read temperature !\n");
+            }
+            else{
+                printf("Temperature: %f\n",tmp);
+            }
+        }
+    }
+}
 
 void LightHandler()
 {
@@ -119,11 +123,11 @@ void LightHandler()
             printf("Failed to read light !\n");
         }
         else{
-            printf("Light: %f\n",lgt);
+            //printf("Light: %f\n",lgt);
         }
         char lgt_buf[64];
         snprintf(lgt_buf, sizeof(lgt_buf), "%f", lgt);
-        messageSend("1/light", lgt_buf);
+        messageSend("data/1/light", lgt_buf);
         wait_us(2000000);
     }
 }
@@ -138,31 +142,36 @@ void HumidityHandler()
                 lightThread.wait(500);
                 char hum_buf[64];
                 snprintf(hum_buf, sizeof(hum_buf), "%d", 1);
-                messageSend("1/pump", hum_buf);
+                messageSend("data/1/pump", hum_buf);
                 int time = 0;
                 while(hmd<desire.humidity){
                     if(manual) break;
                     hmd = humidity.read();
                     time++;
-                    // if(time>=20){
-                    //     snprintf(buffer, sizeof(buffer), "%f", hmd);
-                    //     messageSend("1/humidity", buffer);
-                    //     time = 0;
-                    // }
+                    if(time>=20){
+                        char buffer[32];
+                        snprintf(buffer, sizeof(buffer), "%f", hmd);
+                        messageSend("data/1/humidity", buffer);
+                        time = 0;
+                    }
                     wait_us(100000);
                 }
                 pump = 0;
+                // memset(&(hum_buf[0]), 0, sizeof(hum_buf));
+                // snprintf(hum_buf, sizeof(hum_buf), "%d", 0);
+                // messageSend("1/pump", hum_buf);
             }
         }
         if(isnan(hmd)){
             printf("Failed to read humidity!");
         }
          else{
-            printf("Humidity: %f\n",hmd);
+            //printf("Humidity: %f\n",hmd);
         }
-        char buffer[64];
+        char buffer[65];
         snprintf(buffer, sizeof(buffer), "%f", hmd);
-        messageSend("1/humidity", buffer);
+        //printf("Humidity: %s\n",buffer);
+        messageSend("data/1/humidity", buffer);
         wait_us(2000000);
     }
 }
@@ -173,25 +182,28 @@ void messageArrived(MQTT::MessageData& md){
     char msg[message.payloadlen+1];
     snprintf(msg, sizeof(msg), "%.*s\r\n",message.payloadlen, (char*)message.payload);
     snprintf(topic, sizeof(topic), "%.*s\r\n", md.topicName.lenstring.len, (char*)md.topicName.lenstring.data);
-    if (strcmp(topic,"%/update")==0){
+    if (strcmp(topic,"%/control/1/update")==0){
         LightHandler();
         HumidityHandler();
     }
-    if(strcmp(topic,"%/1/desire/humidity")==0){
+    if(strcmp(topic,"%/control/1/humidity")==0){
         desire.humidity = atof(msg);
     }
-    if(strcmp(topic,"%/1/desire/light")==0){
+    if(strcmp(topic,"%/control/1/light")==0){
         desire.light = atof(msg);
         
     }
-    if(strcmp((char*)topic,"%/1/control_pump")==0){
+    if(strcmp((char*)topic,"%/control/1/control_pump")==0){
         if(manual){
             pump=atoi(msg);
             printf("Pump should be %d\n",atoi(msg));
             printf("%d\n",atoi((char*)msg));
+            char hum_buf[64];
+            snprintf(hum_buf, sizeof(hum_buf), "%d", atoi(msg));
+            messageSend("data/1/pump", hum_buf);
         }
     }
-    if(strcmp((char*)topic,"%/1/manual")==0){
+    if(strcmp((char*)topic,"%/control/1/manual")==0){
         manual=strcmp((char*)msg,"1")==0;
         printf("Manual: %d\n",manual);
     }
@@ -215,6 +227,7 @@ int find_network(WiFiInterface *wifi)
 
     ap = new WiFiAccessPoint[count];
     count = wifi->scan(ap, count);
+    
 
     if (count <= 0) {
         printf("scan() failed with return value: %d\n", count);
@@ -231,6 +244,9 @@ int find_network(WiFiInterface *wifi)
 int main(void)
 {   
     SocketAddress sockAddrUDP;
+    SocketAddress UDPbroadcast;
+
+
     wifi = WiFiInterface::get_default_instance();
     if (!wifi) {
             printf("ERROR: No WiFiInterface found.\n");
@@ -250,29 +266,35 @@ int main(void)
         printf("\nConnection error: %d\n", ret);
         return -1;
     }
+    printf("Success\n");
 
-    printf("Success\n\n");
-    // sockAddrUDP = wifi->get_ip_address();
+    char dataBuffer[32];
+
     UDPsock.open(wifi);
-    UDPsock.bind(8090);
-    char connBuffer[32]="aaaaaaaaaaa";
-    
-    sockAddrUDP.set_ip_address("255.255.255.255");
-    sockAddrUDP.set_port(8090);
-    UDPsock.sendto(sockAddrUDP,connBuffer, sizeof(connBuffer));
-    UDPsock.recvfrom(&sockAddrUDP, connBuffer, sizeof(connBuffer));
-    printf("%s",sockAddrUDP.get_ip_address());
-    UDPsock.sendto(sockAddrUDP,"CONNECTION", 10);
-    printf("got %s\n",connBuffer);
+    UDPsock.bind(8091);
+    UDPsock.sendto(SocketAddress("255.255.255.255", 8081),"SendTest",8);
+    int udp_res = UDPsock.recvfrom(NULL, dataBuffer, sizeof(dataBuffer));
+    if(udp_res>0){
+        dataBuffer[udp_res] = '\0';
+    }
+    UDPsock.sendto(SocketAddress(dataBuffer, 8090),"CONNECTION",10);
+    memset(&(dataBuffer[0]), 0, sizeof(dataBuffer));
+    UDPsock.recvfrom(NULL, dataBuffer, sizeof(dataBuffer));
+    host = dataBuffer;
+    printf("%s\n",host);
     initializeMQTTConnection(wifi);
-    client.subscribe("%/#", MQTT::QOS0, messageArrived);
+    client.subscribe("%/control/#", MQTT::QOS0, messageArrived);
     
 
-    // humidityThread.start(HumidityHandler);
-    // lightThread.start(LightHandler);
+    humidityThread.start(HumidityHandler);
+    lightThread.start(LightHandler);
     // tempThread.start(TemperatureHandler);
     while(true){
-        client.yield(100);
+        client.yield(500);
+        if(!client.isConnected()){
+            initializeMQTTConnection(wifi);
+            client.subscribe("%/control/#", MQTT::QOS0, messageArrived);
+        }
     }
     wifi->disconnect();
 
